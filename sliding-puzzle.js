@@ -1,4 +1,4 @@
-const slidingPuzzle = (target, size = 50) => {
+const createSlidingPuzzle = (target, size = 50) => {
   const shuffle = arr => arr.slice().sort(() => Math.random() > .5)
 
   const table = shuffle([
@@ -75,8 +75,3 @@ const slidingPuzzle = (target, size = 50) => {
 
   render(table)
 }
-
-slidingPuzzle(
-  document.querySelector('.sliding-puzzle'),
-  40
-)
