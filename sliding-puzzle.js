@@ -1,24 +1,12 @@
 const createSlidingPuzzle = (target, size = 50) => {
   const shuffle = arr => arr.slice().sort(() => Math.random() > .5)
-
-  const table = shuffle([
-    ['0 0', `-${size}px 0`, `-${size * 2}px 0`],
-    [`0 -${size}px`, `-${size}px`, `-${size * 2}px -${size}px`],
-    [`0 -${size * 2}px`, `-${size}px -${size * 2}px`, 0],
-  ]).map(shuffle)
-
-  Object.assign(target.style, {
-    width: `${size * 3}px`,
-    height: `${size * 3}px`
-  })
-
-  const appendTo = parent => child => parent.appendChild(child)
+  const shuffleAll = table => shuffle(table).map(shuffle)
 
   const render = table => (
     table.forEach(
       (column, y) => column
       .map((value, x) => !!value ? createTile(value, x, y) : document.createElement('div'))
-      .forEach(appendTo(target))
+      .forEach(tile => target.appendChild(tile))
     )
   )
 
@@ -72,6 +60,24 @@ const createSlidingPuzzle = (target, size = 50) => {
 
     return tile
   }
+
+  let table = shuffleAll([
+    ['0 0', `-${size}px 0`, `-${size * 2}px 0`],
+    [`0 -${size}px`, `-${size}px`, `-${size * 2}px -${size}px`],
+    [`0 -${size * 2}px`, `-${size}px -${size * 2}px`, 0],
+  ])
+
+  Object.assign(target.style, {
+    width: `${size * 3}px`,
+    height: `${size * 3}px`
+  })
+
+  document
+    .querySelector('.js-shuffle')
+    .addEventListener('click', () => {
+      clear(target)
+      render((table = shuffleAll(table)))
+    })
 
   render(table)
 }

@@ -11,9 +11,9 @@
   </head>
   <body>
     <main class="content">
-      <section class="sliding-puzzle"></section>
+      <section class="sliding-puzzle" title="Sliding puzzle"></section>
       <section>
-        <h1 class="name">Renan Vaz</h1>
+        <h1 class="name js-shuffle" title="Shuffle tiles">Renan Vaz</h1>
         <nav class="social">
           <a href="https://github.com/renanpvaz" target="_blank" rel="noopener" title="Fork me on Github">
             <svg class="social__icon" viewBox="0 0 32 32">
@@ -43,7 +43,7 @@
     <script type="text/javascript">
       createSlidingPuzzle(
         document.querySelector('.sliding-puzzle'),
-        screen.width <= 599 ? 40 : 70
+        screen.width <= 599 ? 45 : 70
       )
     </script>
   </body>

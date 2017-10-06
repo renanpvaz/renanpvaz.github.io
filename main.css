@@ -87,6 +87,7 @@ a {
   font-size: 4rem;
   margin-bottom: 1.5rem;
   line-height: 2.8rem;
+  cursor: pointer;
 }
 
 .name:hover {
@@ -116,7 +117,7 @@ a {
   .content {
     flex-direction: column;
     align-items: center;
-    height: 205px;
+    height: 230px;
     top: 45%;
   }
 
