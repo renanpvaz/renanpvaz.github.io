@@ -84,6 +84,7 @@ a {
 }
 
 .name {
+  outline: none;
   font-size: 4rem;
   margin-bottom: 1.5rem;
   line-height: 2.8rem;
@@ -111,13 +112,13 @@ a {
 
 @media (max-width: 599px) {
   html {
-    font-size: 12px;
+    font-size: 14px;
   }
 
   .content {
     flex-direction: column;
     align-items: center;
-    height: 42vh;
+    height: 50%;
     top: 45%;
   }
 
