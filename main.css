@@ -33,13 +33,13 @@ body {
 
 body:after {
   content: '';
-  height: 55vh;
+  height: 65vh;
   width: 100vw;
   display: block;
   background-color: white;
   position: absolute;
   z-index: -1;
-  bottom: 0;
+  bottom: -10%;
   border-top: .5px solid #5CC18D;
 }
 
