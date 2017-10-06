@@ -21,11 +21,14 @@ body {
   height: 100%;
 }
 
+html {
+  font-size: 16px;
+}
+
 body {
   margin: 0;
   font-family: 'Neuton', serif;
   background-color: #def2e7;
-  font-size: 16px;
   color: #333;
   height: 100vh;
   overflow: hidden;
@@ -54,7 +57,7 @@ a {
   top: 40%;
   transform: translateY(-50%);
   position: relative;
-  max-width: 300px;
+  max-width: 500px;
   margin: 0 auto;
 }
 
@@ -70,7 +73,7 @@ a {
   background-image: url(https://avatars0.githubusercontent.com/u/14297772?v=4&s=460);
   margin: 0;
   position: absolute;
-  background-color: antiquewhite;
+  background-color: #333;
   border: 2px outset #333;
   box-sizing: border-box;
   cursor: pointer;
@@ -81,9 +84,9 @@ a {
 }
 
 .name {
-  font-size: 2.5rem;
+  font-size: 4rem;
   margin-bottom: 1rem;
-  line-height: 1.8rem;
+  line-height: 2.8rem;
 }
 
 .name:hover {
@@ -95,10 +98,10 @@ a {
 }
 
 .social__icon {
-  width: 20px;
-  height: 20px;
+  width: 2rem;
+  height: 2rem;
   fill: #333;
-  margin-right: 4px;
+  margin-right: 0.125rem;
 }
 
 .social__icon:hover {
@@ -106,10 +109,14 @@ a {
 }
 
 @media (max-width: 599px) {
+  html {
+    font-size: 12px;
+  }
+
   .content {
     flex-direction: column;
     align-items: center;
-    height: 210px;
+    height: 205px;
     top: 45%;
   }
 
