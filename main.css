@@ -6,9 +6,9 @@
 }
 
 @keyframes slide-text-shadow {
-  0% { text-shadow: 2px 2px 0px #5CC18D, 4px 4px 0px #71e2a8, 6px 6px 0px #82ffbf; }
-  50% { text-shadow: 2px 2px 0px #82ffbf, 4px 4px 0px #5CC18D, 6px 6px 0px #71e2a8; }
-  100% { text-shadow: 2px 2px 0px #71e2a8, 4px 4px 0px #82ffbf, 6px 6px 0px #5CC18D; }
+  0% { text-shadow: 4px 4px 0px #5CC18D, 8px 8px 0px #71e2a8, 12px 12px 0px #82ffbf; }
+  50% { text-shadow: 4px 4px 0px #82ffbf, 8px 8px 0px #5CC18D, 12px 12px 0px #71e2a8; }
+  100% { text-shadow: 4px 4px 0px #71e2a8, 8px 8px 0px #82ffbf, 12px 12px 0px #5CC18D; }
 }
 
 * {
@@ -85,12 +85,12 @@ a {
 
 .name {
   font-size: 4rem;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
   line-height: 2.8rem;
 }
 
 .name:hover {
-  animation: slide-text-shadow 1s ease-in-out infinite;
+  animation: slide-text-shadow .5s linear infinite forwards;
 }
 
 .social {
