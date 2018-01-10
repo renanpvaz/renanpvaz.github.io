@@ -46,11 +46,12 @@ body {
 
 .social {
   display: flex;
+  flex-wrap: wrap;
   margin: 32px 0;
 }
 
 .social__link {
-  margin-right: 1rem;
+  margin-right: .5rem;
   padding: 8px 8px 0;
 }
 
