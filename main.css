@@ -3,6 +3,12 @@
   margin: 0;
 }
 
+html,
+body {
+  overflow-y: hidden;
+  height: 100vh;
+}
+
 html {
   font-size: 18px;
 }
@@ -21,6 +27,8 @@ body {
 }
 
 .logo {
+  transition: color ease-in-out .2s;
+  transform: rotate3d(1, 1, 0, 25deg);
   padding: 8px;
   border: 8px solid;
   width: 125px;
@@ -29,7 +37,15 @@ body {
   text-transform: capitalize;
   box-sizing: border-box;
   letter-spacing: 2px;
-  border-right-color: #ffffff54;
+  border-right-color: rgba(255, 255, 255, 0.32941176470588235);
+}
+
+.logo:hover {
+  color: white;
+}
+
+.logo .logo {
+  color: rgba(255, 255, 255, 0.1607843137254902);
 }
 
 .container {
