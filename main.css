@@ -40,12 +40,12 @@ body {
   border-right-color: rgba(255, 255, 255, 0.32941176470588235);
 }
 
-.logo:hover {
-  color: white;
-}
-
 .logo .logo {
   color: rgba(255, 255, 255, 0.1607843137254902);
+}
+
+.logo:hover {
+  color: white;
 }
 
 .container {
