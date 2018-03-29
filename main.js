@@ -40,7 +40,7 @@ const bounceAround = debounce(30, target => {
   target.dataset.velY = didCollideY ? velY * -1 : velY
 
   if (didCollideX || didCollideY) {
-    target.style.color = ['#f50003', '#19028b', '#d6de31'][~~(Math.random() * 2) + 0]
+    target.style.color = ['#f50003', '#19028b', '#d6de31'][~~(Math.random() * 3) + 0]
   }
 
   requestAnimationFrame(() => bounceAround(target))
