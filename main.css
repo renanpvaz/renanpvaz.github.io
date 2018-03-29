@@ -1,100 +1,53 @@
 * {
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 html,
 body {
-  overflow-y: hidden;
-  height: 100vh;
-}
-
-html {
-  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
 body {
-  background-color: #6e1fff;
-  color: white;
-  fill: white;
-  font-size: 1rem;
-  font-family: Colfax, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  color: #00ff00;
+  font-family: 'Inconsolata', monospace;
+  background: repeating-linear-gradient( 45deg, #ffffff, #ffffff 3px, rgba(204, 204, 204, 0.3) 3px, rgba(204, 204, 204, 0.3) 6px );
+  font-size: 14px;
+}
+
+.header,
+.bio {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
 }
 
 .header {
-  width: 100%;
+  top: 42%;
 }
 
-.logo {
-  transition: color ease-in-out .2s;
-  transform: rotate3d(1, 1, 0, 25deg);
-  padding: 8px;
-  border: 8px solid;
-  width: 125px;
-  height: 125px;
-  font-size: 32px;
-  text-transform: capitalize;
-  box-sizing: border-box;
-  letter-spacing: 2px;
-  border-right-color: rgba(255, 255, 255, 0.32941176470588235);
+.title {
+  width: auto;
+  display: inline-block;
+  color: #f50003;
+  font-size: 10px;
 }
 
-.logo .logo {
-  color: rgba(255, 255, 255, 0.1607843137254902);
+.bio {
+  max-width: 400px;
+  min-width: 300px;
+  margin: 0 8px;
+  padding: 4px;
+  background-color: #0000ff;
+  box-shadow: 5px 5px 0 #000;
+  z-index: 1;
 }
 
-.logo:hover {
-  color: white;
-}
-
-.container {
-  max-width: 940px;
-  margin: 10% auto;
-  padding: 0 32px;
-}
-
-.content {
-  box-sizing: border-box;
-  padding: 32px 0;
-  line-height: 1.5;
-}
-
-.social {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 32px 0;
-}
-
-.social__link {
-  margin-right: .5rem;
-  padding: 8px 8px 0;
-}
-
-.social__link:focus {
-  outline: #ffffff54 dotted;
-}
-
-.social__icon {
-  width: 1.8rem;
-  height: 1.8rem;
-  fill: inherit;
-}
-
-.social__icon:hover {
-  opacity: 0.7;
-}
-
-@media (min-width: 1140px) {
-  html {
-    font-size: 22px;
-  }
-
-  .container {
-    padding: 0;
-  }
-
-  .content {
-    margin-left: 360px;
+@media(max-width: 480px) {
+  .title {
+    font-size: 6px;
   }
 }
