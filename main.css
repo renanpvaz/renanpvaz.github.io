@@ -6,6 +6,7 @@ html {
   background: #507e48;
   color: #060C05;
   font-size: 18px;
+  overflow-x: hidden;
 }
 
 html,
