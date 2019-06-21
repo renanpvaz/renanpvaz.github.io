@@ -1,57 +1,99 @@
 * {
   margin: 0;
-  padding: 0;
+}
+
+html {
+  background: #507e48;
+  color: #060C05;
+  font-size: 18px;
 }
 
 html,
 body {
-  height: 100%;
   width: 100%;
-  overflow: hidden;
+  height: 100%;
 }
 
-body {
-  color: #00ff00;
-  font-family: 'Inconsolata', monospace;
-  background: repeating-linear-gradient( 45deg, #ffffff, #ffffff 3px, rgba(204, 204, 204, 0.3) 3px, rgba(204, 204, 204, 0.3) 6px );
-  font-size: 14px;
+main {
+  display: grid;
+  grid-template-rows: 1fr auto;
+  grid-template-columns: minmax(min-content, 800px);
+}
+
+.content {
+  max-width: 450px;
+  margin: 64px 32px;
+  font-size: 18px;
+  line-height: 1.5;
 }
 
 a {
-  color: #0000ff;
-}
-
-.container {
-  max-width: 400px;
-  margin: auto;
-  position: relative;
-  transform: translateY(-50%);
-  top: 50%;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-.title {
-  width: auto;
+  color: inherit;
+  font-style: italic;
   display: inline-block;
-  color: #f50003;
-  font-size: 10px;
+  position: relative;
 }
 
-.bio {
+a:hover::before,
+a:focus::before {
+  content: '';
+  z-index: -1;
+  display: inline-block;
   width: 100%;
-  padding: 4px;
-  background-color: #0000ff;
-  box-shadow: 5px 5px 0 #000;
+  height: 100%;
+  background: #ffeb3b;
+  position: absolute;
+  transform: skew(15deg, 0deg);
+}
+
+.logo {
+  margin: 0;
+  position: relative;
+  display: inline-block;
+  float: left;
   z-index: 1;
 }
 
-.navigation {
-  margin-bottom: 8px;
+.title {
+  writing-mode: vertical-rl;
+  line-height: 100px;
+  margin: 0;
+  font-style: italic;
+  font-size: 84px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
-@media(max-width: 480px) {
+.subtitle {
+  text-transform: uppercase;
+  font-family: sans-serif;
+  line-height: 1.2;
+  font-size: 32px;
+  justify-self: end;
+  white-space: nowrap;
+  padding: 0 32px;
+}
+
+.me {
+  width: 250px;
+  float: left;
+  clip-path: polygon(100% 0%, 100% 90%, 10% 100%, 0% 10%);
+  shape-outside: polygon(100% 0%, 100% 90%, 10% 100%, 0% 10%);
+  margin: 0 16px 0 -55px;
+}
+
+@media (max-width: 600px) {
+  .content {
+    margin-left: 16px;
+    margin-right: 16px;
+  }
+
   .title {
-    font-size: 6px;
+    line-height: 80px;
+    font-size: 72px;
+  }
+
+  .me {
+    width: 150px;
   }
 }
