@@ -7,7 +7,7 @@
       name="viewport"
       content="initial-scale=1.0, width=device-width, viewport-fit=cover"
     />
-    <link rel="me" href="https://github.com/mrmartineau" type="text/html" />
+    <link rel="me" href="https://github.com/renanpvaz" type="text/html" />
     <meta
       name="description"
       property="og:description"
@@ -54,5 +54,30 @@
         <a href="">codepen</a>
       </nav>
     </footer>
+    <script>
+      let dark = false
+      const bgColor = '#f3f0eb'
+
+      const setBackground = ({ x, y }) => {
+        document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, ${bgColor} 15%, black 40.5%)`
+      }
+
+      document.querySelector('#theme-toggle').addEventListener('change', e => {
+        if (e.target.checked) {
+          document.body.classList.add('dark')
+          setBackground({ x: 0, y: window.innerHeight })
+          dark = true
+        } else {
+          document.body.classList.remove('dark')
+          document.body.style.background = bgColor
+          dark = false
+        }
+      })
+
+      document.addEventListener('mousemove', e => {
+        if (!dark) return
+        setBackground(e)
+      })
+    </script>
   </body>
 </html>

@@ -62,6 +62,10 @@ footer {
   display: block;
 }
 
+.dark {
+  background: black;
+}
+
 .work {
   font-size: 110px;
   font-weight: bold;
@@ -98,6 +102,7 @@ footer {
   margin: 32px;
   text-transform: uppercase;
   user-select: none;
+  font-size: 18px;
 }
 
 .theme-toggle__input {
