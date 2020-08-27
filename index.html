@@ -28,7 +28,7 @@
       <span>Hi, Renan Vaz here</span>
       <h1>I'm a developer based in Brazil</h1>
     </header>
-    <div></div>
+    <canvas></canvas>
     <article class="content">
       <p class="description">
         I build web-things and I like to use
@@ -56,7 +56,11 @@
     </footer>
     <script>
       let dark = false
+      let mouse = { x: 0, y: 0 }
       const bgColor = '#f3f0eb'
+
+      const rand = (min = 0, max = 1) =>
+        Math.round(Math.random() * (max - min) + min)
 
       const setBackground = ({ x, y }) => {
         document.body.style.background = `radial-gradient(circle at ${x}px ${y}px, ${bgColor} 15%, black 40.5%)`
@@ -75,9 +79,57 @@
       })
 
       document.addEventListener('mousemove', e => {
-        if (!dark) return
-        setBackground(e)
+        mouse = { x: e.x, y: e.y }
       })
+
+      const canvas = document.querySelector('canvas')
+      const context = canvas.getContext('2d', { alpha: false })
+
+      const size = 250
+      const step = 20
+      const dpr = window.devicePixelRatio
+
+      canvas.width = size * dpr
+      canvas.height = size * dpr
+      context.scale(dpr, dpr)
+
+      const canvasX = canvas.offsetLeft
+      const canvasY = canvas.offsetHeight
+
+      context.lineCap = 'round'
+      context.lineWidth = 2
+
+      const randCoord = () => rand(0, 250)
+
+      context.translate(size / 2, size / 2)
+
+      const loop = () => {
+        const relativeX = mouse.x - (canvasX + size / 2)
+        const relativeY = mouse.y - (canvasY + size / 2 - 80)
+
+        if (dark) {
+          setBackground(mouse)
+        }
+
+        context.clearRect(0, 0, 250, 250)
+
+        context.beginPath()
+
+        for (let index = 0; index < 20; index++) {
+          context.moveTo(0, 0)
+
+          context.rotate((rand(0, 360) * Math.PI) / 180)
+          context.lineTo(
+            rand(10, Math.abs(relativeX)),
+            rand(10, Math.abs(relativeY))
+          )
+        }
+        context.stroke()
+
+        requestIdleCallback(loop)
+      }
+
+      loop()
     </script>
   </body>
 </html>
