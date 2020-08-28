@@ -1,32 +1,7 @@
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: 400;
-  src: url('assets/NeueMontreal-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: bold;
-  src: url('assets/NeueMontreal-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: 500;
-  src: url('assets/NeueMontreal-Medium.otf') format('opentype');
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-}
-
-html {
-  font-family: NeueMontreal, sans-serif;
-  font-size: 28px;
-  overflow-x: hidden;
-  background: #f3f0eb;
 }
 
 body {
