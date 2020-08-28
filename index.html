@@ -19,7 +19,7 @@
       content="Personal website for Renan Vaz"
       class="next-head"
     />
-    <link rel="preload" href="me.jpg" as="image" />
+    <link rel="shortcut icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="main.css" />
   </head>
   <body>
@@ -96,8 +96,8 @@
       const context = canvas.getContext('2d', { alpha: false })
 
       const size = 200
-      const step = 20
       const dpr = window.devicePixelRatio
+      const halfSize = size / 2
 
       canvas.width = size * dpr
       canvas.height = size * dpr
@@ -108,16 +108,13 @@
 
       context.lineCap = 'round'
       context.lineWidth = 2
-
-      const randCoord = () => rand(0, size)
-
       context.fillStyle = bgColor
       context.fillRect(0, 0, size, size)
-      context.translate(size / 2, size / 2)
+      context.translate(halfSize, halfSize)
 
       const draw = () => {
-        const relativeX = Math.abs(mouse.x - (canvasX + size / 2))
-        const relativeY = Math.abs(mouse.y - (canvasY + size / 2 - 80))
+        const relativeX = Math.abs(mouse.x - (canvasX + halfSize))
+        const relativeY = Math.abs(mouse.y - (canvasY + halfSize - 80))
 
         if (dark) {
           setBackground(mouse)
