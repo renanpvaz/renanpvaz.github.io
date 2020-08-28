@@ -61,11 +61,6 @@ a {
   text-decoration: none;
 }
 
-a:hover,
-label:hover {
-  text-decoration: underline solid #703dea;
-}
-
 footer {
   display: block;
 }
@@ -78,6 +73,38 @@ canvas {
   margin-right: 5%;
   border-radius: 50%;
   z-index: -1;
+}
+
+.decorate {
+  --decoration-angle: 2deg;
+  position: relative;
+}
+
+.decorate:nth-child(2) {
+  --decoration-angle: 4deg;
+}
+
+.decorate:last-child {
+  --decoration-angle: -2deg;
+}
+
+.decorate::after {
+  cursor: pointer;
+  content: '';
+  display: inline-block;
+  width: 100%;
+  border-bottom: 0.2em solid #703dea;
+  transform: translateY(-50%) scaleX(0);
+  position: absolute;
+  top: 50%;
+  left: -5%;
+  transition: transform 0.1s ease;
+  transform-origin: left;
+  pointer-events: none;
+}
+
+.decorate:hover::after {
+  transform: translateY(-50%) scaleX(1.1) rotate(var(--decoration-angle));
 }
 
 .backdrop {
@@ -95,6 +122,9 @@ canvas {
   font-weight: bold;
   list-style: none;
   line-height: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .content {
