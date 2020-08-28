@@ -30,7 +30,6 @@ html {
 }
 
 body {
-  margin: 0;
   display: grid;
   grid-template-rows: 1fr 200px 1fr 1fr;
   align-items: flex-end;
@@ -103,7 +102,7 @@ canvas {
 
 .description {
   max-width: 220px;
-  margin-right: 30px;
+  margin: 0 32px 16px 0;
   font-size: 0.8em;
   text-indent: 65px;
   padding-top: 1ch;

@@ -12,7 +12,7 @@ const setBackground = ({ x, y }) => {
 document.querySelector('#theme-toggle').addEventListener('change', e => {
   if (e.target.checked) {
     bg.style.display = 'block'
-    setBackground({ x: 0, y: window.innerHeight })
+    setBackground({ x: mouse.x || 0, y: mouse.y || window.innerHeight })
     dark = true
   } else {
     bg.style.display = 'none'
