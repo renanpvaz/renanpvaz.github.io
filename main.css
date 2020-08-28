@@ -113,7 +113,7 @@ canvas {
   margin-top: auto;
   padding: 16px 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: flex-end;
 }
 
@@ -123,6 +123,8 @@ canvas {
   align-items: flex-end;
   text-transform: uppercase;
   font-size: 1.2em;
+  margin: 16px 0;
+  line-height: 1.4;
 }
 
 .theme-toggle {
@@ -164,5 +166,18 @@ canvas {
 
   .content {
     flex-direction: column;
+  }
+
+  .footer,
+  .contact {
+    align-items: flex-start;
+  }
+
+  .footer {
+    margin-top: 32px;
+  }
+
+  .contact {
+    font-size: 1.5em;
   }
 }
