@@ -25,6 +25,7 @@
 html {
   font-family: NeueMontreal, sans-serif;
   font-size: 28px;
+  overflow-x: hidden;
   background: #f3f0eb;
 }
 
@@ -34,22 +35,24 @@ body {
   grid-template-rows: 1fr 200px 1fr 1fr;
   align-items: flex-end;
   padding: 0 35px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 html,
 body {
   height: 100%;
   width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
   font-weight: 500;
-  font-size: 84px;
+  font-size: 3em;
   margin: 0;
 }
 
 code {
-  font-size: 14px;
+  font-size: 0.6em;
 }
 
 a {
@@ -58,27 +61,37 @@ a {
   text-decoration: none;
 }
 
+a:hover,
+label:hover {
+  text-decoration: underline solid #703dea;
+}
+
 footer {
   display: block;
 }
 
 canvas {
-  height: 250px;
-  width: 250px;
-  background-size: cover;
-  background-position: center center;
+  height: 200px;
+  width: 200px;
   justify-self: flex-end;
   align-self: baseline;
-  margin-right: 200px;
+  margin-right: 5%;
   border-radius: 50%;
+  z-index: -1;
 }
 
-.dark {
-  background: black;
+.backdrop {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  pointer-events: none;
 }
 
 .work {
-  font-size: 110px;
+  font-size: 4em;
   font-weight: bold;
   list-style: none;
   line-height: 1;
@@ -89,31 +102,33 @@ canvas {
 }
 
 .description {
-  flex-basis: 220px;
+  max-width: 220px;
   margin-right: 30px;
-  font-size: 20px;
+  font-size: 0.8em;
   text-indent: 65px;
+  padding-top: 1ch;
+}
+
+.footer {
+  margin-top: auto;
+  padding: 16px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
 }
 
 .contact {
-  position: fixed;
-  right: 0;
-  bottom: 0;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   text-transform: uppercase;
-  margin: 32px;
+  font-size: 1.2em;
 }
 
 .theme-toggle {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  margin: 32px;
   text-transform: uppercase;
   user-select: none;
-  font-size: 18px;
+  font-size: 0.8em;
 }
 
 .theme-toggle__input {
@@ -130,4 +145,24 @@ canvas {
 
 .theme-toggle__input:checked + .theme-toggle__label::after {
   content: 'on';
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    padding: 32px 8px;
+    grid-template-rows: 1fr 80px 1fr 1fr;
+  }
+
+  canvas {
+    height: 110px;
+    width: 110px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
 }
