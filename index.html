@@ -19,6 +19,7 @@
       content="Personal website for Renan Vaz"
       class="next-head"
     />
+    <meta name="theme-color" content="#000" />
     <link rel="shortcut icon" href="assets/favicon.png" />
     <link rel="stylesheet" href="main.css" />
   </head>
@@ -73,20 +74,10 @@
         bg.style.background = `radial-gradient(circle at ${x}px ${y}px, transparent 15%, black 40.5%)`
       }
 
-      const setThemeMeta = () => {
-        const meta = document.createElement('meta')
-
-        meta.setAttribute('name', 'theme-color')
-        meta.setAttribute('content', '#000')
-
-        document.head.appendChild(meta)
-      }
-
       document.querySelector('#theme-toggle').addEventListener('change', e => {
         if (e.target.checked) {
           bg.style.display = 'block'
           setBackground({ x: 0, y: window.innerHeight })
-          setThemeMeta()
           dark = true
         } else {
           bg.style.display = 'none'
