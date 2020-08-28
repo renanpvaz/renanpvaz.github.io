@@ -23,19 +23,19 @@
   padding: 0;
 }
 
-body {
-  display: grid;
-  grid-template-rows: 1fr 200px 1fr 1fr;
-  align-items: flex-end;
-  padding: 0 35px;
-  color: rgba(0, 0, 0, 0.84);
-}
-
 html {
   font-family: NeueMontreal, sans-serif;
   font-size: 28px;
   overflow-x: hidden;
   background: #f3f0eb;
+}
+
+body {
+  display: grid;
+  grid-template-rows: 1fr 160px 1fr 1fr;
+  align-items: flex-end;
+  padding: 0 35px;
+  color: rgba(0, 0, 0, 0.84);
 }
 
 html,
