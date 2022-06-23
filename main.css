@@ -1,21 +1,4 @@
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: 400;
-  src: url('assets/NeueMontreal-Regular.otf') format('opentype');
-  font-display: fallback;
-}
-
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: bold;
-  src: url('assets/NeueMontreal-Bold.otf') format('opentype');
-}
-
-@font-face {
-  font-family: NeueMontreal;
-  font-weight: 500;
-  src: url('assets/NeueMontreal-Medium.otf') format('opentype');
-}
+@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&display=swap");
 
 * {
   box-sizing: border-box;
@@ -24,190 +7,62 @@
 }
 
 html {
-  font-family: NeueMontreal, sans-serif;
-  font-size: 28px;
   overflow-x: hidden;
-  background: #f3f0eb;
+  background: #f5c8f8;
 }
 
 body {
-  display: grid;
-  grid-template-rows: 1fr 160px 1fr 1fr;
-  align-items: flex-end;
-  padding: 0 35px;
-  color: rgba(0, 0, 0, 0.84);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #1236f3;
+  max-width: 384px;
 }
 
-html,
-body {
-  height: 100%;
-  width: 100%;
-  overflow-x: hidden;
-}
-
-h1 {
-  font-weight: 500;
-  font-size: 3em;
-  margin: 0;
-}
-
-code {
-  font-size: 0.6em;
+ul {
+  list-style: none;
 }
 
 a {
   font-family: inherit;
   color: inherit;
-  text-decoration: none;
+  cursor: pointer;
+}
+
+pre {
+  line-height: 1.2;
+  opacity: 0.6;
+}
+
+.link {
+  display: inline-block;
+  text-decoration: underline;
+  cursor: pointer;
+  text-decoration-skip-ink: revert;
+}
+
+.link:hover {
+  text-decoration: line-through;
 }
 
 footer {
   display: block;
+  margin-bottom: 64px;
 }
 
-canvas {
-  height: 200px;
-  width: 200px;
-  justify-self: flex-end;
-  align-self: baseline;
-  margin-right: 5%;
-  border-radius: 50%;
-  z-index: -1;
+h1 {
+  text-align: center;
+  font-weight: normal;
+  font-size: inherit;
+  margin-bottom: 30px;
+  text-transform: uppercase;
 }
 
-.decorate {
-  --decoration-angle: 2deg;
-  position: relative;
-}
-
-.decorate:nth-child(2) {
-  --decoration-angle: 4deg;
-}
-
-.decorate:last-child {
-  --decoration-angle: -2deg;
-}
-
-.decorate::after {
-  cursor: pointer;
-  content: '';
-  display: inline-block;
-  width: 100%;
-  border-bottom: 0.2em solid #703dea;
-  transform: translateY(-50%) scaleX(0);
-  position: absolute;
-  top: 50%;
-  left: -5%;
-  transition: transform 0.1s ease;
-  transform-origin: left;
-  pointer-events: none;
-}
-
-.decorate:hover::after {
-  transform: translateY(-50%) scaleX(1.1) rotate(var(--decoration-angle));
-}
-
-.backdrop {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  pointer-events: none;
-}
-
-.work {
-  font-size: 4em;
-  font-weight: bold;
-  list-style: none;
-  line-height: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+.section + * {
+  margin-top: 16px;
 }
 
 .content {
-  display: flex;
-}
-
-.description {
-  max-width: 220px;
-  margin: 0 32px 16px 0;
-  font-size: 0.8em;
-  text-indent: 65px;
-  padding-top: 1ch;
-}
-
-.footer {
-  margin-top: auto;
-  padding: 16px 0;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-
-.contact {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  text-transform: uppercase;
-  font-size: 1.2em;
-  margin: 16px 0;
-  line-height: 1.4;
-}
-
-.theme-toggle {
-  text-transform: uppercase;
-  user-select: none;
-  font-size: 0.8em;
-}
-
-.theme-toggle__input {
-  display: none;
-}
-
-.theme-toggle__label {
-  cursor: pointer;
-}
-
-.theme-toggle__label::after {
-  content: 'off';
-}
-
-.theme-toggle__input:checked + .theme-toggle__label::after {
-  content: 'on';
-}
-
-@media screen and (max-width: 600px) {
-  html {
-    font-size: 16px;
-  }
-
-  body {
-    padding: 32px 8px;
-    grid-template-rows: 1fr 80px 1fr 1fr;
-  }
-
-  canvas {
-    height: 110px;
-    width: 110px;
-  }
-
-  .content {
-    flex-direction: column;
-  }
-
-  .footer,
-  .contact {
-    align-items: flex-start;
-  }
-
-  .footer {
-    margin-top: 32px;
-  }
-
-  .contact {
-    font-size: 1.5em;
-  }
+  max-width: 320px;
+  margin: 48px auto 0 auto;
 }
