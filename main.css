@@ -28,11 +28,6 @@ a {
   text-decoration: none;
 }
 
-pre {
-  line-height: 1.2;
-  opacity: 0.6;
-}
-
 .link {
   display: inline-block;
   text-decoration: underline;
@@ -66,6 +61,17 @@ li + li {
 }
 
 .content {
+  position: relative;
   max-width: 320px;
-  margin: 48px auto 0 auto;
+  margin: 0 auto 0 auto;
+  height: 100vh;
+  max-height: 700px;
+  padding-top: 48px;
+}
+
+.cat {
+  line-height: 1.2;
+  opacity: 0.6;
+  position: absolute;
+  bottom: 0;
 }
