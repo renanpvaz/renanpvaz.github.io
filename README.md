@@ -1,3 +1,3 @@
-# [renanvaz.me](https://renanpvaz.github.io/)
+# [renan.fyi](https://renan.fyi/)
 
 My tiny personal website.
