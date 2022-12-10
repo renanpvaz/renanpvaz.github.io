@@ -36,7 +36,8 @@ p {
 
 .content {
   max-width: 320px;
-  margin: 140px 70px;
+  padding-top: 140px;
+  margin-left: 70px;
   height: 100%;
 }
 
@@ -81,8 +82,8 @@ p {
 
 @media (max-width: 480px) {
   .content {
-    margin: 60px 0 0 0;
     max-width: 100%;
-    padding: 0 35px;
+    margin: 0;
+    padding: 60px 35px;
   }
 }
