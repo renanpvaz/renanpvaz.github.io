@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -11,7 +11,7 @@
     <meta
       name="description"
       property="og:description"
-      content="Hello, I'm Renan, a software developer based in Brazil"
+      content="Hello, I'm Renan, a software developer based in Brasil"
     />
     <title>Renan Vaz</title>
     <meta
@@ -29,57 +29,64 @@
     />
     <link rel="stylesheet" href="main.css" />
   </head>
+
   <body>
-    <main class="content">
-      <section class="section">
-        <h1 class="heading-1 stroke">hi.</h1>
-        <p class="subtitle description">
-          I am Renan Vaz, a software developer based in Brazil. I have been
-          building products and useless things for a little over seven years
-          now. Currently working at theScore.
-        </p>
-      </section>
-      <footer class="section">
-        <p>You can see some of my work or reach out through <span>↓</span></p>
-        <ul>
-          <li>
-            <a
-              class="link"
-              href="https://github.com/renanpvaz"
-              target="_blank"
-              rel="noopener"
-              >GitHub</a
-            >
-          </li>
-          <li>
-            <a
-              class="link"
-              href="https://codepen.io/renanpvaz"
-              target="_blank"
-              rel="noopener"
-              >Codepen</a
-            >
-          </li>
-          <li>
-            <a
-              class="link"
-              href="mailto:hello@renan.fyi"
-              target="_blank"
-              rel="noopener"
-              >Email</a
-            >
-          </li>
-          <li>
-            <a
-              class="link"
-              href="https://www.linkedin.com/in/renanpvaz"
-              target="_blank"
-              rel="noopener"
-              >Linkedin</a
-            >
-          </li>
-        </ul>
-      </footer>
-    </main>
+    <pre></pre>
+    <script>
+      const offsetX = 5;
+      const offsetY = 3;
+      const charWidth = 17;
+      const charHeight = 21;
+      const contentWidth = 60;
+
+      const row = "/ ".repeat(Math.round(window.innerWidth / charWidth));
+      const bg = Array(Math.round(window.innerHeight / charHeight)).fill(
+        `${row}\n`,
+      );
+
+      const content = `
+  Hi 8^)
+
+  My name is Renan. I'm software developer based in Brasil.
+  Currently working on ESPN Bet at PENN Entertainment.
+
+  You can find me at:
+
+  github.com/renanpvaz
+  linkedin.com/in/renanpvaz
+  hello@renan.fyi
+`;
+
+      content.split("\n").forEach((line, i) => {
+        const pos = i + offsetY;
+        const bgLine = bg[pos].split("");
+        line = line.padEnd(contentWidth, " ");
+        bgLine.splice(offsetX, line.length, ...line);
+        bg[pos] = bgLine.join("");
+      });
+
+      const pre = document.querySelector("pre");
+
+      document.body.onmousemove = (e) => {
+        const x = Math.min(row.length - 1, Math.floor(e.x / (charWidth / 2)));
+        const y = Math.floor(e.y / charHeight);
+        const line = bg[y];
+
+        if (!line || !line[x]) return;
+
+        const char = bg[y][x].charCodeAt(0);
+
+        if (char === 32) return;
+
+        bg[y] =
+          bg[y].substring(0, x) +
+          String.fromCharCode(char + 1) +
+          bg[y].substring(x + 1);
+
+        pre.textContent = bg.join("");
+      };
+
+      pre.textContent = bg.join("");
+    </script>
   </body>
 </html>
