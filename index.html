@@ -33,7 +33,8 @@
   <body>
     <pre></pre>
     <script>
-      const offsetX = 5;
+      const mobile = window.innerWidth <= 480;
+      const offsetX = mobile ? 0 : 5;
       const offsetY = 3;
       const charWidth = 17;
       const charHeight = 21;
@@ -45,31 +46,53 @@
       );
 
       const content = `
-  Hi 8^)
-
-  My name is Renan. I'm software developer based in Brasil.
-  Currently working on ESPN Bet at PENN Entertainment.
-
-  You can find me at:
-
-  github.com/renanpvaz
-  linkedin.com/in/renanpvaz
-  hello@renan.fyi
+ Hi 8^)
+ 
+ My name is Renan. I'm software developer based in Brasil.
+ Currently working on ESPN Bet at PENN Entertainment.
+ 
+ You can find me at:
+ 
+ github.com/renanpvaz
+ linkedin.com/in/renanpvaz
+ hello@renan.fyi
 `;
 
-      content.split("\n").forEach((line, i) => {
-        const pos = i + offsetY;
-        const bgLine = bg[pos].split("");
-        line = line.padEnd(contentWidth, " ");
-        bgLine.splice(offsetX, line.length, ...line);
-        bg[pos] = bgLine.join("");
-      });
+      const lineBreak = row.length - offsetX - 1;
+      let lines = content.split("\n");
+
+      lines
+        .flatMap((line, i) => {
+          if (line.length > lineBreak)
+            return [
+              line.substring(0, lineBreak) + " ",
+              " " + line.substring(lineBreak),
+            ];
+
+          return [line];
+        })
+        .forEach((line, i) => {
+          const pos = i + offsetY;
+          const bgLine = bg[pos].split("");
+          line = line
+            .padEnd(contentWidth, " ")
+            .substring(0, row.length - offsetX);
+
+          bgLine.splice(offsetX, line.length, ...line);
+          bg[pos] = bgLine.join("");
+        });
 
       const pre = document.querySelector("pre");
+      const touch = navigator.maxTouchPoints > 0;
 
-      document.body.onmousemove = (e) => {
-        const x = Math.min(row.length - 1, Math.floor(e.x / (charWidth / 2)));
-        const y = Math.floor(e.y / charHeight);
+      const moveHandler = (e) => {
+        const eventX = touch ? e.changedTouches[0].pageX : e.x;
+        const eventY = touch ? e.changedTouches[0].pageY : e.y;
+        const x = Math.min(
+          row.length - 1,
+          Math.floor(eventX / (charWidth / 2)),
+        );
+        const y = Math.floor(eventY / charHeight);
         const line = bg[y];
 
         if (!line || !line[x]) return;
@@ -85,6 +108,9 @@
 
         pre.textContent = bg.join("");
       };
+
+      document.body.addEventListener("touchmove", moveHandler);
+      document.body.addEventListener("mousemove", moveHandler);
 
       pre.textContent = bg.join("");
     </script>
