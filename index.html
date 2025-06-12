@@ -39,11 +39,8 @@
       const charWidth = 17;
       const charHeight = 21;
       const contentWidth = 60;
-
-      const row = "/ ".repeat(Math.round(window.innerWidth / charWidth));
-      const bg = Array(Math.round(window.innerHeight / charHeight)).fill(
-        `${row}\n`,
-      );
+      const pre = document.querySelector("pre");
+      const touch = navigator.maxTouchPoints > 0;
 
       const content = `
  Hi 8^)
@@ -58,19 +55,25 @@
  hello@renan.fyi
 `;
 
+      pre.innerHTML = content;
+    </script>
+    <script>
+      const row = "/ ".repeat(Math.round(window.innerWidth / charWidth));
+      const bg = Array(Math.round(window.innerHeight / charHeight)).fill(
+        `${row}\n`,
+      );
       const lineBreak = row.length - offsetX - 1;
-      let lines = content.split("\n");
 
-      lines
-        .flatMap((line, i) => {
-          if (line.length > lineBreak)
-            return [
-              line.substring(0, lineBreak) + " ",
-              " " + line.substring(lineBreak),
-            ];
-
-          return [line];
-        })
+      content
+        .split("\n")
+        .flatMap((line, i) =>
+          line.length > lineBreak
+            ? [
+                line.substring(0, lineBreak) + " ",
+                " " + line.substring(lineBreak),
+              ]
+            : [line],
+        )
         .forEach((line, i) => {
           const pos = i + offsetY;
           const bgLine = bg[pos].split("");
@@ -81,9 +84,6 @@
           bgLine.splice(offsetX, line.length, ...line);
           bg[pos] = bgLine.join("");
         });
-
-      const pre = document.querySelector("pre");
-      const touch = navigator.maxTouchPoints > 0;
 
       const moveHandler = (e) => {
         const eventX = touch ? e.changedTouches[0].pageX : e.x;
